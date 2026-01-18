@@ -10,7 +10,7 @@ An EC2 instance was launched with the following configuration:
 Image1
 Image2
 	
-## Key Pair Configuration
+### Key Pair Configuration
 An RSA key pair (webkeys.pem) was created for secure SSH access.
 File permissions were restricted so that only the owner could read the key:
 
@@ -44,14 +44,14 @@ An initial check showed that NGINX was not installed:
 
 sudo systemctl status nginx
 
-## Manual NGINX Installation (Amazon Linux 2023)
+### Manual NGINX Installation (Amazon Linux 2023)
 Since User Data did not install NGINX successfully, it was installed manually using dnf:
 
 sudo dnf install nginx -y
 sudo systemctl start nginx
 sudo systemctl enable nginx
 
-## Verification
+### Verification
 NGINX was verified to be running and listening on port 80:
 
 sudo systemctl status nginx
