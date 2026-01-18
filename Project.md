@@ -7,22 +7,23 @@ An EC2 instance was launched with the following configuration:
 - Region: eu-west-2 (London)
 -  Public IPv4 Address: Enabled
 
-Image1
-Image2
+![image alt](https://github.com/davidyemo/aws-ec2-domain-dns/blob/main/images/images1.png?raw=true)
+![image alt](https://github.com/davidyemo/aws-ec2-domain-dns/blob/main/images/images2.png?raw=true)
+
 	
 ### Key Pair Configuration
 An RSA key pair (webkeys.pem) was created for secure SSH access.
 
 File permissions were restricted so that only the owner could read the key command used were :chmod 400 webkeys.pem
 
-Image3
+![image alt](https://github.com/davidyemo/aws-ec2-domain-dns/blob/main/images/images3.png?raw=true)
 
 ## Step 2: Security Group Configuration
 A security group was configured to allow required inbound traffic while keeping the instance secure.
 			
 Security groups in AWS are stateful meaning outbound traffic is allowed automatically once inbound traffic is permitted.
 
-Image4
+![image alt](https://github.com/davidyemo/aws-ec2-domain-dns/blob/main/images/images4.png?raw=true)
 
 ## Step 3: Instance Health Check
 After launching the instance AWS status checks were monitored.
@@ -30,7 +31,7 @@ Once the instance passed 2/2 status checks, it confirmed that both the AWS infra
 
 Only after these checks passed was the instance accessed via SSH and HTTP.
 
-Image5
+![image alt](https://github.com/davidyemo/aws-ec2-domain-dns/blob/main/images/images5.png?raw=true)
 
 ## Step 4: SSH Access and NGINX Setup
 The instance was accessed securely using SSH and an initial check showed that NGINX was not installed:
@@ -58,12 +59,12 @@ DNS records were configured in Cloudflare.
 The Cloudflare proxy was set to DNS only (grey cloud). 
 Enabling the proxy initially caused a 522 Connection Timed Out error as the EC2 instance was not configured to accept proxied traffic.
 
-Image6
+![image alt](https://github.com/davidyemo/aws-ec2-domain-dns/blob/main/images/images6.png?raw=true)
 
 ## Step 6: Final Verification
 After DNS propagation completed, the deployment was verified: The NGINX welcome page loaded successfully via the EC2 public IP and custom domain (dyemo.co.uk)
 
 
-Image6
+![image alt](https://github.com/davidyemo/aws-ec2-domain-dns/blob/main/images/images7.png?raw=true)
 
-Image7
+![image alt](https://github.com/davidyemo/aws-ec2-domain-dns/blob/main/images/images8.png?raw=true)
